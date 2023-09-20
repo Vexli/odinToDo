@@ -12,13 +12,13 @@ export function todoDom(parent,variable){
   ele.classList.add("todo");
 
   eleParent.appendChild(ele);
-  addId(ele,"todo");
+  addId(variable,ele,"todo");
   return ele;
 }
 
 // ToDo VAR
 export function todoVar(titel) {
   return {
-    titel: titel,
+    titel: titel
   };
 }

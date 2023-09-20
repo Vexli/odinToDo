@@ -1,5 +1,5 @@
 // Count
-let count = 0;
+let count = -1;
 
 export const createCount = () => {
   return count++;
