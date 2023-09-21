@@ -1,5 +1,26 @@
+:root{
+  --colorWhiteTrue: #FFF;
+  --colorBlackTrue: #000;
+  --colorBeige: #FFE;
+  --colorBlueDark: #003;
+
+  --colorMode: var(--colorWhiteTrue);
+  --beige2Blue: var(--colorBeige);
+  --blue2Beige: var(--colorBlueDark);
+}
+
+body{
+  background-color: var(--beige2Blue);
+  color: var(--blue2Beige);
+}
+
+.addTodo{
+  text-align: center;
+}
+
 .todo{
-  background-color: black !important;
-  color: red;
-  width:80%;
+  background-color: var(--colorMode);
+  filter: drop-shadow(0 0 2px var(--blue2Beige));
+  margin: 1vh;
+  padding: 1vh;
 }

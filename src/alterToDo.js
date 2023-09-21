@@ -1,6 +1,6 @@
 /* Import */
 import { createCount } from './constructor.js';
-import { getEle } from './alterDOM.js';
+import { addDateDom, getEle } from './alterDOM.js';
 
 /* VARIABLE Define */
 let cntId = createCount();
@@ -16,6 +16,7 @@ export function setAttribute(todo,attribute,value){
 export function addDate(variable,date){
   if (rgxDateIso.test(date) === true){
     setAttribute(variable,"date",date);
+    addDateDom(variable,date);
   } else{
     return "Invalid Date";
   }
@@ -28,7 +29,7 @@ export function addDesc(variable,text){
 
 // Add id
 export function addId(variable,element,type){
-  let domId = `${type}-${createCount()}`
+  let domId = createCount();
   element.setAttribute("id",domId);
   variable.id = domId;
 }
