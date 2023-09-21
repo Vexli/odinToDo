@@ -5,8 +5,9 @@ export function getEle(variable){
 
 // Add Date to the DOM
 export function addDateDom(element,date){
-  let ele = getEle(element);
-  addEleAfter(element,date);
+  let ele = document.createElement("div");
+  ele.innerText = date;
+  addEleAfter(element,ele);
 }
 
 // Add element at bottom of parent
@@ -32,4 +33,14 @@ export function delToDo(arr,variable){
   let complete = arr.splice(index,1);
 
   console.log(arr);
+}
+
+// Display Add ToDo Form
+export function displayElement(element){
+  console.log(element.style.display);
+  if (element.style.display === 'none'){
+    element.style.display = 'block';
+  } else{
+    element.style.display = 'none';
+  }
 }

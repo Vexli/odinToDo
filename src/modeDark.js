@@ -4,18 +4,22 @@ export function modeDark() {                                 // Switches color T
   const cssColorMode = cssRootStyle.getPropertyValue("--colorMode");
   const cssColorBlackTrue = cssRootStyle.getPropertyValue("--colorBlackTrue");
   const cssColorWhiteTrue = cssRootStyle.getPropertyValue("--colorWhiteTrue");
-  const cssColorBlueDark = cssRootStyle.getPropertyValue("--colorBlueDark");
-  const cssColorBeige = cssRootStyle.getPropertyValue("--colorBeige");
+  const cssColorDark = cssRootStyle.getPropertyValue("--colorBackgroundDark");
+  const cssColorLight = cssRootStyle.getPropertyValue("--colorBackgroundLight");
+  const cssColorPrimaryDark = cssRootStyle.getPropertyValue("--colorPrimaryDark");
+  const cssColorPrimaryLight = cssRootStyle.getPropertyValue("--colorPrimaryLight");
 
   if(cssColorMode == cssColorWhiteTrue){
     console.log("Activate Dark Mode");
     cssRoot.style.setProperty("--colorMode",cssColorBlackTrue);
-    cssRoot.style.setProperty("--beige2Blue",cssColorBlueDark);
-    cssRoot.style.setProperty("--blue2Beige",cssColorBeige);
+    cssRoot.style.setProperty("--colorLight",cssColorDark);
+    cssRoot.style.setProperty("--colorDark",cssColorLight);
+    cssRoot.style.setProperty("--colorPrimary",cssColorPrimaryDark);
   } else if(cssColorMode == cssColorBlackTrue){
     console.log("Activate Light Mode");
     cssRoot.style.setProperty("--colorMode",cssColorWhiteTrue);
-    cssRoot.style.setProperty("--beige2Blue",cssColorBeige);
-    cssRoot.style.setProperty("--blue2Beige",cssColorBlueDark);
+    cssRoot.style.setProperty("--colorLight",cssColorLight);
+    cssRoot.style.setProperty("--colorDark",cssColorDark);
+    cssRoot.style.setProperty("--colorPrimary",cssColorPrimaryLight);
   }
 }

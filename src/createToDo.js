@@ -5,14 +5,21 @@ import { addDate, addDesc, addId, addPrio, addProject } from './alterToDo.js';
 /* VARIABLE Define */
 const idContainer = "container";
 
+// Create Element
+function createElement(parent,type){
+  let eleParent = document.getElementById(parent);
+  let ele = document.createElement(type);
+  eleParent.prepend(ele);
+
+  return ele;
+}
+
 // ToDo DOM
 export function todoDom(parent,variable){
-  let eleParent = document.getElementById(parent);
-  let ele = document.createElement("div");
+  let ele = createElement(parent,"div");
   ele.textContent = variable.titel;
   ele.classList.add("todo");
 
-  eleParent.prepend(ele);
   addId(variable,ele,"todo");
   return ele;
 }
@@ -25,22 +32,14 @@ export function todoVar(titel) {
 }
 
 // ToDo Popup
-export function todoPopup(parent){
-    let popTitel = prompt("What do you have to do?");
-    let popDesc = prompt("You can elaborate the");
-    let popProject = prompt("With which project does it go");
-    let popPrio = prompt("What priority does it have?");
-    let popDate = prompt("When must it be done by?");
+export function createToDo(parent,titel,date,desc,prio,project){
+    let responseTodo = todoVar(titel);
 
-    let responseTodo = todoVar(popTitel);
     todoDom(parent,responseTodo);
-    addDesc(responseTodo,popDesc);
-    addDate(responseTodo,popDate);
-    addPrio(responseTodo,popPrio);
-    addProject(responseTodo,popProject);
+    addDate(responseTodo,date);
+    addDesc(responseTodo,desc);
+    addPrio(responseTodo,prio);
+    addProject(responseTodo,project);
 
     arrToDo.push(responseTodo);
-
-    console.log(arrToDo);
-
 }

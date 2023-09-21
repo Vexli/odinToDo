@@ -1,26 +1,72 @@
+/* Root */
 :root{
   --colorWhiteTrue: #FFF;
   --colorBlackTrue: #000;
-  --colorBeige: #FFE;
-  --colorBlueDark: #003;
+  --colorBackgroundLight: #EDF0DA;
+  --colorBackgroundDark: #13262F;
+  --colorPrimaryLight: #FF8360;
+  --colorPrimaryDark: #840032;
 
   --colorMode: var(--colorWhiteTrue);
-  --beige2Blue: var(--colorBeige);
-  --blue2Beige: var(--colorBlueDark);
+  --colorPrimary: var(--colorPrimaryLight);
+  --colorLight: var(--colorBackgroundLight);
+  --colorDark: var(--colorBackgroundDark);
 }
 
+/* Elements */
 body{
-  background-color: var(--beige2Blue);
-  color: var(--blue2Beige);
+  background-color: var(--colorLight);
+  color: var(--colorDark);
+  margin: 0px;
+  padding: 0px;
 }
 
+input, select, textarea{
+  background-color: var(--colorLight);
+  border: solid 1px var(--colorPrimary);
+  color: var(--colorDark);
+}
+
+/* Classes */
 .addTodo{
   text-align: center;
 }
 
+.btn:hover{
+  background-color: var(--colorPrimary);
+  border: solid 1px var(--colorLight);
+  color: var(--colorLight);
+}
+
+.container{
+  margin: 1vh;
+}
+
+.formEle {
+  margin: 1vh;
+}
+
+.nav{
+  align-items: center;
+  background-color: var(--colorPrimary);
+  color: var(--colorLight);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 4vh;
+  height: 4vh;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 1vh;
+  width: auto;
+}
+
 .todo{
-  background-color: var(--colorMode);
-  filter: drop-shadow(0 0 2px var(--blue2Beige));
+  background-color: var(--colorLight);
+  border: solid 1px var(--colorPrimary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
   margin: 1vh;
   padding: 1vh;
 }
