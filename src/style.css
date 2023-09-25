@@ -17,6 +17,8 @@
 body{
   background-color: var(--colorLight);
   color: var(--colorDark);
+  font-family: Helvetica, sans-serif;
+  font-size: 3vh;
   margin: 0px;
   padding: 0px;
 }
@@ -43,7 +45,7 @@ input, select, textarea{
 }
 
 .formEle {
-  margin: 1vh;
+  margin-bottom: 1vh;
 }
 
 .nav{
