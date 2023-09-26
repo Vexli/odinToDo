@@ -18,7 +18,12 @@
           <h2 class="listToDo">
             ToDo
           </h2>
-          <div class="listProject">
+          <div>
+            <h2>
+              Projects
+            </h2>
+            <div id="listProject" class="listProject">
+            </div>
           </div>
           <h2 class="listDone">
             Done
@@ -45,7 +50,7 @@
             <select class="formEle" name="todoProject" id="todoProject">
               <option selected value="">None</option>
             </select>
-            <input class="btn" type="submit" value="Add New">
+            <input id="btnNewProject"class="btn" type="submit" value="Add New">
             <br>
             <label class="formEle" for="todoPriority">Priority</label>
             <br>
@@ -60,7 +65,7 @@
             <br>
             <input class="formEle" type="date" id="todoDate" name="todoDate"/>
             <br>
-            <input class="formEle btn" type="submit" value="Submit">
+            <input id="btnNewToDo" class="formEle btn" type="submit" value="Submit">
           </form>
         </div>
       </div>

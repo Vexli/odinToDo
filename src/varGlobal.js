@@ -14,6 +14,9 @@ let arrProject = [];
 /* DATE */
 const dateToday = new Date();
 const dateTodo = document.getElementById("todoDate");
+
+/* DOM */
+const btnAddTodo = document.getElementById("btnNewToDo");
 const divAdd = document.getElementById("addTodo");
 const formAdd = document.getElementById("todoNew");
 const formSearch = document.getElementById("search");
@@ -27,6 +30,7 @@ export { arrToDo
   , dateToday
   , dateTodo
   , divAdd
+  , btnAddTodo
   , formAdd
   , formSearch
 };

@@ -5,6 +5,7 @@ import { arrToDo
   , arrProject
   , dateToday
   , dateTodo
+  , btnAddTodo
   , divAdd
   , formAdd
   , formSearch
@@ -34,6 +35,8 @@ import{
   , getEle
   , getObj
   , todoExpand
+  , prjctMenu
+  , prjctSelect
 } from './alterDOM.js';
 
 import{
@@ -49,6 +52,7 @@ formAdd.style.display = "none";
 divAdd.style.display = "block";
 
 /* FUNCTION Call */
+modeDark();
 
 /* Listener */
 // General function listenenr
@@ -63,7 +67,7 @@ document.addEventListener("click", (e) =>{
   }
 });
 
-//Listen for Side Menu Clicks
+// Listen for Side Menu Clicks
 document.addEventListener("click", (e) =>{
   if (e.target.classList.contains("listToDo")){ // ToDo
     let resultSearch = arrSearch(arrToDo,"status",0);
@@ -78,10 +82,19 @@ document.addEventListener("click", (e) =>{
   }
 });
 
-// Listen for submission of new ToDo
-formAdd.addEventListener("submit", function(event){
-  event.preventDefault();
-  createToDo("container", formAdd.elements.todoTitel.value, formAdd.elements.todoDate.value, formAdd.elements.todoDesc.value, formAdd.elements.todoPriority.value, formAdd.elements.todoProject.value);
-  formAdd.style.display = "none";
-  divAdd.style.display = "block";
+// Listen for Buttons
+document.addEventListener("click", (e) =>{
+  if (e.target.classList.contains("btn")){
+    e.preventDefault();
+    if (e.target.id === "btnNewToDo"){ // Add new ToDo
+      createToDo("container", formAdd.elements.todoTitel.value, formAdd.elements.todoDate.value, formAdd.elements.todoDesc.value, formAdd.elements.todoPriority.value, formAdd.elements.todoProject.value);
+      formAdd.style.display = "none";
+      divAdd.style.display = "block";
+      console.log(arrToDo);
+    }else if (e.target.id === "btnNewProject"){ // Add new Project to Side Menu and Menu checker
+      addPrjctName(arrProject);
+      prjctMenu(arrProject,"listProject");
+      prjctSelect(arrProject,"todoProject")
+    }
+  }
 });

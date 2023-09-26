@@ -1,6 +1,13 @@
+/* IMPORT */
+import { addHeader, addOption, delEleChildren } from './addElement.js'
+
 // Get DOM from Variable
 export function getEle(variable){
-  return document.getElementById(variable.id);
+  if (typeof variable === 'object'){
+    return document.getElementById(variable.id);
+  }else{
+    return document.getElementById(variable);
+  }
 }
 
 // Get Object from Element
@@ -64,4 +71,21 @@ export function todoExpand(arr,element){
 export function addPrjctName(arr){
   let newProject = prompt("Please add a new Project");
   arr.push(newProject);
+}
+
+// Display Projects in Menu
+export function prjctMenu(arr,parent){
+  delEleChildren(parent);
+  for (let i = 0; i < arr.length; i++) {
+    let ele = addHeader(3,arr[i]);
+    addEleAfter(parent,ele);
+  }
+}
+
+export function prjctSelect(arr,parent){
+  delEleChildren(parent);
+  for (let i = 0; i < arr.length; i++) {
+    let ele = addOption(arr[i],arr[i]);
+    addEleAfter(parent,ele);
+  }
 }
