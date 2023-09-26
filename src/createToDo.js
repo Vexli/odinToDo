@@ -40,7 +40,7 @@ export function createToDo(parent,titel,date,desc,prio,project){
     addDesc(responseTodo,desc);
     addPrio(responseTodo,prio);
     addProject(responseTodo,project);
-    addStatus(responseTodo,project);
+    addStatus(responseTodo,0);
 
     arrToDo.push(responseTodo);
 }

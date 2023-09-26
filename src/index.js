@@ -63,15 +63,19 @@ document.addEventListener("click", (e) =>{
   }
 });
 
-// Listen for submission of search
-formSearch.addEventListener("submit", function(event){
-  event.preventDefault();
-  let searchAttribute = formSearch.elements.attribute.value;
-  let searchValue = formSearch.elements.value.value;
-  console.log(arrToDo);
-  let resultSearch = arrSearch(arrToDo, searchAttribute, searchValue);
-  console.log(resultSearch);
-  searchDisplay(arrToDo,resultSearch);
+//Listen for Side Menu Clicks
+document.addEventListener("click", (e) =>{
+  if (e.target.classList.contains("listToDo")){ // ToDo
+    let resultSearch = arrSearch(arrToDo,"status",0);
+    searchDisplay(arrToDo,resultSearch);
+  }else if (e.target.classList.contains("listToDo")){ // Project
+  }else if (e.target.classList.contains("listDone")){ // Done
+    let resultSearch = arrSearch(arrToDo,"status",1);
+    searchDisplay(arrToDo,resultSearch);
+  }else if (e.target.classList.contains("listAll")){ // All
+    let resultSearch = arrSearch(arrToDo,"all","");
+    searchDisplay(arrToDo,resultSearch);
+  }
 });
 
 // Listen for submission of new ToDo

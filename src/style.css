@@ -1,35 +1,47 @@
-/* Root */
+/* Root Variables */
 :root{
-  --colorWhiteTrue: #FFF;
   --colorBlackTrue: #000;
-  --colorBackgroundLight: #EDF0DA;
-  --colorBackgroundDark: #13262F;
-  --colorPrimaryLight: #FF8360;
-  --colorPrimaryDark: #840032;
+  --colorWhiteTrue: #FFF;
 
+  --colorBackgroundLight: #EDF0DA;
+  --colorPrimaryLight: #FF8360;
+  --colorSecondaryLight: #EFE5CE;
+
+  --colorBackgroundDark: #13262F;
+  --colorPrimaryDark: #840032;
+  --colorSecondaryDark: #1E222F;
+
+  --colorDark: var(--colorBackgroundDark);
+  --colorLight: var(--colorBackgroundLight);
   --colorMode: var(--colorWhiteTrue);
   --colorPrimary: var(--colorPrimaryLight);
-  --colorLight: var(--colorBackgroundLight);
-  --colorDark: var(--colorBackgroundDark);
+  --colorSecondary: var(--colorSecondaryLight);
 }
 
-/* Elements */
-body, label, input, select, option, textarea{
+/* Global Elements */
+body
+, input
+, select
+, option
+, textarea{
   background-color: var(--colorLight);
   color: var(--colorDark);
   font-family: Helvetica, sans-serif;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
-input, select, option, textarea{
+input
+, select
+, option
+, textarea{
   background-color: var(--colorLight);
-  border: solid 1px var(--colorPrimary);
+  border: 1px solid var(--colorPrimary);
   color: var(--colorDark);
   font-size: 2vh;
+  height: 3vh;
   line-height: 2vh;
   padding: 0.5vh;
-  height: 3vh;
   width: auto;
 }
 
@@ -38,37 +50,45 @@ textarea{
 }
 
 /* Classes */
-.addTodo{
-  text-align: center;
+.body{
+  display: flex;
 }
 
 .btn:hover{
   background-color: var(--colorPrimary);
-  border: solid 1px var(--colorLight);
+  border: 1px solid var(--colorLight);
   color: var(--colorLight);
 }
 
 .container{
   margin: 1vh;
+  text-align: center;
+  width: 80vw;
 }
 
-.formEle {
-  margin-bottom: 1vh;
+.formAddTodo{
+  text-align: center;
 }
 
 .formBox{
   width: 20vh;
 }
 
-.formInputCorrect{
-  border: solid black 0px;
-  height: 2vh;
-  margin: 0px 1vh;
-  padding: 0.4vh;
+.formEle{
+  margin-bottom: 1vh;
 }
 
 .logo:hover{
   color: var(--colorDark);
+}
+
+.menuSide{
+  background-color: var(--colorSecondary);
+  height: 92vh;
+  margin: 0;
+  padding: 1vh;
+  text-align: right;
+  width: 18vw;
 }
 
 .nav{
@@ -85,19 +105,17 @@ textarea{
   width: auto;
 }
 
-.navSearch{
-  align-items: center;
-  display: flex;
-  height: 100%;
-}
-
 .todo{
   background-color: var(--colorLight);
-  border: solid 1px var(--colorPrimary);
+  border: 1px solid var(--colorPrimary);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow: hidden;
   margin: 1vh;
+  overflow: hidden;
   padding: 1vh;
+}
+
+.todo:hover{
+  background-color: var(--colorSecondary);
 }

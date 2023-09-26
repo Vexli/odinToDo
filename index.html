@@ -10,56 +10,63 @@
         Citrus
       </div>
       <div>
-        <form id="search" class="navSearch">
-          <select name="attribute" id="attribute">
-            <option selected value="all">All</option>
-            <option value="desc">Description</option>
-            <option value="date">Due Date</option>
-            <option value="prio">Priority</option>
-          </select>
-          <input class="formBox formInputCorrect" type="text" name="value" value="">
-          <input class="btn" type="submit" value="Submit">
-        </form>
       </div>
     </div>
-    <div id="container" class="container">
+    <div class="body">
+      <div class="menuSide">
+        <div class="list">
+          <h2 class="listToDo">
+            ToDo
+          </h2>
+          <div class="listProject">
+          </div>
+          <h2 class="listDone">
+            Done
+          </h2>
+          <h2 class="listAll">
+            All
+          </h2>
+        </div>
+        <h2 id="addTodo" class="addTodo">
+          Add
+        </h2>
+        <div class="formAddTodo addTodo">
+          <form id="todoNew">
+            <label class="formEle" for="todoTitel">Name</label>
+            <br>
+            <input required class="formEle formBox" type="text" name="todoTitel" value="">
+            <br>
+            <label class="formEle" for="todoDesc">Description</label>
+            <br>
+            <textarea class="formEle formBox" id="todoDesc" name="todoDesc" rows="4"></textarea>
+            <br>
+            <label class="formEle" for="todoProject">Project</label>
+            <br>
+            <select class="formEle" name="todoProject" id="todoProject">
+              <option selected value="">None</option>
+            </select>
+            <input class="btn" type="submit" value="Add New">
+            <br>
+            <label class="formEle" for="todoPriority">Priority</label>
+            <br>
+            <select class="formEle" name="todoPriority" id="todoPriority">
+              <option selected value="">None</option>
+              <option value="1">High</option>
+              <option value="2">Middle</option>
+              <option value="3">Low</option>
+            </select>
+            <br>
+            <label class="formEle" for="todoDate">Due Date</label>
+            <br>
+            <input class="formEle" type="date" id="todoDate" name="todoDate"/>
+            <br>
+            <input class="formEle btn" type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+      <div id="container" class="container">
 
-    </div>
-    <div id="addTodo" class="addTodo">
-      Add +
-    </div>
-    <div class="formAddTodo addTodo">
-      <form id="todoNew">
-        <label class="formEle" for="todoTitel">Name</label>
-        <br>
-        <input required class="formEle formBox" type="text" name="todoTitel" value="">
-        <br>
-        <label class="formEle" for="todoDesc">Description</label>
-        <br>
-        <textarea class="formEle formBox" id="todoDesc" name="todoDesc" rows="4"></textarea>
-        <br>
-        <label class="formEle" for="todoProject">Project</label>
-        <br>
-        <select class="formEle" name="todoProject" id="todoProject">
-          <option selected value="">None</option>
-        </select>
-        <input class="btn" type="submit" value="Add New">
-        <br>
-        <label class="formEle" for="todoPriority">Priority</label>
-        <br>
-        <select class="formEle" name="todoPriority" id="todoPriority">
-          <option selected value="">None</option>
-          <option value="1">High</option>
-          <option value="2">Middle</option>
-          <option value="3">Low</option>
-        </select>
-        <br>
-        <label class="formEle" for="todoDate">Due Date</label>
-        <br>
-        <input class="formEle" type="date" id="todoDate" name="todoDate"/>
-        <br>
-        <input class="formEle btn" type="submit" value="Submit">
-      </form>
+      </div>
     </div>
     <script src="./dist/main.js"></script>
   </body>
