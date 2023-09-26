@@ -48,17 +48,13 @@ export function delToDo(arr,variable){
   let id = variable.id;
   let ele = getEle(variable);
   ele.parentNode.removeChild(ele);
-  console.log(arr);
 
   let index = arr.findIndex(obj => obj.id === id);
   let complete = arr.splice(index,1);
-
-  console.log(arr);
 }
 
 // Display Add ToDo Form
 export function displayElement(element){
-  console.log(element.style.display);
   if (element.style.display === 'none'){
     element.style.display = 'block';
   } else{

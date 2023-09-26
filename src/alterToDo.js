@@ -9,6 +9,7 @@ const rgxDateIso = /^(?!.*-(00|0[1-9])-00)\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-
 /* FUNCTION Define */
 // Add Attribute (VAR)
 export function setAttribute(todo,attribute,value){
+  console.log(todo,attribute,value);
   todo[attribute] = value;
 }
 

@@ -59,6 +59,10 @@ textarea{
   color: var(--colorLight);
 }
 
+.complete{
+  text-decoration: line-through;
+}
+
 .container{
   margin: 1vh;
   text-align: center;

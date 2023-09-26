@@ -42,10 +42,13 @@ import{
 import{
   addDate
   , addDesc
+  , addStatus
   , addPrio
   , addProject
   , setAttribute
 } from './alterToDo.js';
+
+import{ addEleClass } from './addElement.js'
 
 /* VARIABLE Call */
 formAdd.style.display = "none";
@@ -56,10 +59,13 @@ modeDark();
 /* Listener */
 // General function listenenr
 document.addEventListener("click", (e) =>{
-  if (e.target === todoAdd){
+  if (e.target === todoAdd){ // Add new ToDo
     displayElement(formAdd);
-  }else if (e.target.classList.contains("todo") == true){
-    todoExpand(arrToDo,e.target);
+  }else if (e.target.classList.contains("todo") == true){ // Change a ToDo from Open to Done
+    let obj = getObj(arrToDo,e.target);
+    addStatus(obj,1);
+    addEleClass(e.target,["complete"]);
+    //todoExpand(arrToDo,e.target);
   }else if (e.target.id == "nav"){
     modeDark();
   }
@@ -93,7 +99,6 @@ document.addEventListener("click", (e) =>{
     if (e.target.id === "btnNewToDo"){ // Add new ToDo
       createToDo("container", formAdd.elements.todoTitel.value, formAdd.elements.todoDate.value, formAdd.elements.todoDesc.value, formAdd.elements.todoPriority.value, formAdd.elements.todoProject.value);
       formAdd.style.display = "none";
-      console.log(arrToDo);
     }
   }
 });
