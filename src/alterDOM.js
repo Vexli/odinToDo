@@ -3,6 +3,15 @@ export function getEle(variable){
   return document.getElementById(variable.id);
 }
 
+// Get Object from Element
+export function getObj(array,element){
+  for (let i = 0; i < array.length; i++){
+    if (array[i].id == element.id){
+      return array[i];
+    }
+  }
+}
+
 // Add Date to the DOM
 export function addDateDom(element,date){
   let ele = document.createElement("div");
@@ -43,4 +52,16 @@ export function displayElement(element){
   } else{
     element.style.display = 'none';
   }
+}
+
+// Expand ToDo Element
+export function todoExpand(arr,element){
+  let obj = getObj(arr,element);
+  addEleAfter(element,obj.desc);
+}
+
+// Add Projects to List
+export function addPrjctName(arr){
+  let newProject = prompt("Please add a new Project");
+  arr.push(newProject);
 }

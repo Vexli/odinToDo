@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ToDo</title>
+    <title>Citrus ToDo</title>
   </head>
   <body>
     <div id="nav" class="nav">
-      <div id="Logo">
-        ToDo
+      <div id="Logo" class="logo">
+        Citrus
       </div>
       <div>
-        <form id="search">
+        <form id="search" class="navSearch">
           <select name="attribute" id="attribute">
-            <option selected disabled value="">Attribute</option>
+            <option selected value="all">All</option>
             <option value="desc">Description</option>
             <option value="date">Due Date</option>
             <option value="prio">Priority</option>
           </select>
-          <input type="text" name="value" value="">
+          <input class="formBox formInputCorrect" type="text" name="value" value="">
           <input class="btn" type="submit" value="Submit">
         </form>
       </div>
@@ -32,17 +32,18 @@
       <form id="todoNew">
         <label class="formEle" for="todoTitel">Name</label>
         <br>
-        <input required class="formEle" type="text" name="todoTitel" value="">
+        <input required class="formEle formBox" type="text" name="todoTitel" value="">
         <br>
         <label class="formEle" for="todoDesc">Description</label>
         <br>
-        <textarea class="formEle" id="todoDesc" name="todoDesc" rows="4"></textarea>
+        <textarea class="formEle formBox" id="todoDesc" name="todoDesc" rows="4"></textarea>
         <br>
         <label class="formEle" for="todoProject">Project</label>
         <br>
         <select class="formEle" name="todoProject" id="todoProject">
           <option selected value="">None</option>
         </select>
+        <input class="btn" type="submit" value="Add New">
         <br>
         <label class="formEle" for="todoPriority">Priority</label>
         <br>

@@ -14,19 +14,27 @@
 }
 
 /* Elements */
-body{
+body, label, input, select, option, textarea{
   background-color: var(--colorLight);
   color: var(--colorDark);
   font-family: Helvetica, sans-serif;
-  font-size: 3vh;
   margin: 0px;
   padding: 0px;
 }
 
-input, select, textarea{
+input, select, option, textarea{
   background-color: var(--colorLight);
   border: solid 1px var(--colorPrimary);
   color: var(--colorDark);
+  font-size: 2vh;
+  line-height: 2vh;
+  padding: 0.5vh;
+  height: 3vh;
+  width: auto;
+}
+
+textarea{
+  height: 6vh;
 }
 
 /* Classes */
@@ -48,6 +56,21 @@ input, select, textarea{
   margin-bottom: 1vh;
 }
 
+.formBox{
+  width: 20vh;
+}
+
+.formInputCorrect{
+  border: solid black 0px;
+  height: 2vh;
+  margin: 0px 1vh;
+  padding: 0.4vh;
+}
+
+.logo:hover{
+  color: var(--colorDark);
+}
+
 .nav{
   align-items: center;
   background-color: var(--colorPrimary);
@@ -60,6 +83,12 @@ input, select, textarea{
   overflow: hidden;
   padding: 1vh;
   width: auto;
+}
+
+.navSearch{
+  align-items: center;
+  display: flex;
+  height: 100%;
 }
 
 .todo{

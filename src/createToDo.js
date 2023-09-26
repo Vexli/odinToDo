@@ -1,6 +1,6 @@
 /* Import */
-import arrToDo from './varGlobal.js';
-import { addDate, addDesc, addId, addPrio, addProject } from './alterToDo.js';
+import { arrToDo } from './varGlobal.js';
+import { addDate, addDesc, addId, addPrio, addProject, addStatus } from './alterToDo.js';
 
 /* VARIABLE Define */
 const idContainer = "container";
@@ -40,6 +40,7 @@ export function createToDo(parent,titel,date,desc,prio,project){
     addDesc(responseTodo,desc);
     addPrio(responseTodo,prio);
     addProject(responseTodo,project);
+    addStatus(responseTodo,project);
 
     arrToDo.push(responseTodo);
 }

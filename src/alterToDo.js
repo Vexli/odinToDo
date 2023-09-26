@@ -45,3 +45,7 @@ export function addPrio(variable,level){
 export function addProject(variable,name){
   setAttribute(variable,"project",name);
 }
+
+export function addStatus(variable,status){
+  setAttribute(variable,"status",status);
+}
