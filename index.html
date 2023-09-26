@@ -19,7 +19,7 @@
             ToDo
           </h2>
           <div>
-            <h2>
+            <h2 id="addProject">
               Projects
             </h2>
             <div id="listProject" class="listProject">
@@ -32,9 +32,6 @@
             All
           </h2>
         </div>
-        <h2 id="addTodo" class="addTodo">
-          Add
-        </h2>
         <div class="formAddTodo addTodo">
           <form id="todoNew">
             <label class="formEle" for="todoTitel">Name</label>
@@ -50,7 +47,6 @@
             <select class="formEle" name="todoProject" id="todoProject">
               <option selected value="">None</option>
             </select>
-            <input id="btnNewProject"class="btn" type="submit" value="Add New">
             <br>
             <label class="formEle" for="todoPriority">Priority</label>
             <br>
@@ -71,6 +67,9 @@
       </div>
       <div id="container" class="container">
 
+      </div>
+      <div id="todoAdd" class="todoAdd">
+        +
       </div>
     </div>
     <script src="./dist/main.js"></script>

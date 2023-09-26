@@ -1,5 +1,10 @@
 /* IMPORT */
-import { addHeader, addOption, delEleChildren } from './addElement.js'
+import {
+  addEleClass
+  , addHeader
+  , addOption
+  , delEleChildren
+} from './addElement.js'
 
 // Get DOM from Variable
 export function getEle(variable){
@@ -78,6 +83,7 @@ export function prjctMenu(arr,parent){
   delEleChildren(parent);
   for (let i = 0; i < arr.length; i++) {
     let ele = addHeader(3,arr[i]);
+    addEleClass(ele,["project"])
     addEleAfter(parent,ele);
   }
 }

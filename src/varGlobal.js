@@ -17,7 +17,7 @@ const dateTodo = document.getElementById("todoDate");
 
 /* DOM */
 const btnAddTodo = document.getElementById("btnNewToDo");
-const divAdd = document.getElementById("addTodo");
+const todoAdd = document.getElementById("todoAdd");
 const formAdd = document.getElementById("todoNew");
 const formSearch = document.getElementById("search");
 
@@ -29,7 +29,7 @@ export { arrToDo
   , arrProject
   , dateToday
   , dateTodo
-  , divAdd
+  , todoAdd
   , btnAddTodo
   , formAdd
   , formSearch

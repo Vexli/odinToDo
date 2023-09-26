@@ -8,6 +8,14 @@ function addAttribute(element,attribute,value){
   return element;
 }
 
+// Add classt to an existing element
+export function addEleClass(element,arr){
+  for (let i = 0; i < arr.length; i++){
+    element.classList.add(arr[i]);
+  }
+  return element
+}
+
 // Add text to an existing element
 function addEleText(element,text){
   element.textContent = text;

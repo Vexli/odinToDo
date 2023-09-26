@@ -38,10 +38,9 @@ input
   background-color: var(--colorLight);
   border: 1px solid var(--colorPrimary);
   color: var(--colorDark);
-  font-size: 2vh;
-  height: 3vh;
-  line-height: 2vh;
-  padding: 0.5vh;
+  font-size: 16px;
+  height: 32px;
+  padding: 6px;
   width: auto;
 }
 
@@ -97,8 +96,8 @@ textarea{
   color: var(--colorLight);
   display: flex;
   flex-wrap: wrap;
-  font-size: 4vh;
-  height: 4vh;
+  font-size: 28px;
+  height: auto;
   justify-content: space-between;
   overflow: hidden;
   padding: 1vh;
@@ -118,4 +117,25 @@ textarea{
 
 .todo:hover{
   background-color: var(--colorSecondary);
+}
+
+.todoAdd{
+  align-items: center;
+  background-color: var(--colorSecondary);
+  border-radius: 50%;
+  bottom: 21px;
+  color: var(--colorPrimary);
+  display: flex;
+  font-size: 42px;
+  height: 50px;
+  justify-content: center;
+  position: fixed;
+  right: 21px;
+  width: 50px;
+  z-index: 999;
+}
+
+.todoAdd:hover{
+  background-color: var(--colorPrimary);
+  color: var(--colorSecondary);
 }

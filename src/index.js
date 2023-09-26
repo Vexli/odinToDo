@@ -6,7 +6,7 @@ import { arrToDo
   , dateToday
   , dateTodo
   , btnAddTodo
-  , divAdd
+  , todoAdd
   , formAdd
   , formSearch
 } from './varGlobal.js';
@@ -49,7 +49,6 @@ import{
 
 /* VARIABLE Call */
 formAdd.style.display = "none";
-divAdd.style.display = "block";
 
 /* FUNCTION Call */
 modeDark();
@@ -57,8 +56,7 @@ modeDark();
 /* Listener */
 // General function listenenr
 document.addEventListener("click", (e) =>{
-  if (e.target.id == "addTodo"){
-    displayElement(divAdd);
+  if (e.target === todoAdd){
     displayElement(formAdd);
   }else if (e.target.classList.contains("todo") == true){
     todoExpand(arrToDo,e.target);
@@ -69,14 +67,20 @@ document.addEventListener("click", (e) =>{
 
 // Listen for Side Menu Clicks
 document.addEventListener("click", (e) =>{
-  if (e.target.classList.contains("listToDo")){ // ToDo
+  if (e.target.classList.contains("listToDo")){ // Find all open ToDo
     let resultSearch = arrSearch(arrToDo,"status",0);
     searchDisplay(arrToDo,resultSearch);
-  }else if (e.target.classList.contains("listToDo")){ // Project
-  }else if (e.target.classList.contains("listDone")){ // Done
+  }else if (e.target.id === "addProject"){ // Add a new Project
+    addPrjctName(arrProject);
+    prjctMenu(arrProject,"listProject");
+    prjctSelect(arrProject,"todoProject")
+  }else if (e.target.classList.contains("project")){ // Find all ToDo off a Project
+    let resultSearch = arrSearch(arrToDo,"project",e.target.textContent);
+    searchDisplay(arrToDo,resultSearch);
+  }else if (e.target.classList.contains("listDone")){ // Find all completed ToDo
     let resultSearch = arrSearch(arrToDo,"status",1);
     searchDisplay(arrToDo,resultSearch);
-  }else if (e.target.classList.contains("listAll")){ // All
+  }else if (e.target.classList.contains("listAll")){ // Find All ToDo, Open and Done
     let resultSearch = arrSearch(arrToDo,"all","");
     searchDisplay(arrToDo,resultSearch);
   }
@@ -89,12 +93,7 @@ document.addEventListener("click", (e) =>{
     if (e.target.id === "btnNewToDo"){ // Add new ToDo
       createToDo("container", formAdd.elements.todoTitel.value, formAdd.elements.todoDate.value, formAdd.elements.todoDesc.value, formAdd.elements.todoPriority.value, formAdd.elements.todoProject.value);
       formAdd.style.display = "none";
-      divAdd.style.display = "block";
       console.log(arrToDo);
-    }else if (e.target.id === "btnNewProject"){ // Add new Project to Side Menu and Menu checker
-      addPrjctName(arrProject);
-      prjctMenu(arrProject,"listProject");
-      prjctSelect(arrProject,"todoProject")
     }
   }
 });
