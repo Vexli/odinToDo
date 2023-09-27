@@ -28,11 +28,16 @@ export function addDesc(variable,text){
   setAttribute(variable,"desc",text);
 }
 
-// Add id
-export function addId(variable,element,type){
+// Add id to ToDo divs
+export function addId(variable,element){
   let domId = createCount();
   element.setAttribute("id",domId);
   variable.id = domId;
+}
+
+// Add id to ToDo Core Divs
+export function addCoreId(element,num){
+  element.setAttribute("id",`core-${num}`);
 }
 
 // Add Priority

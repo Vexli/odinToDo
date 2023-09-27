@@ -1,8 +1,13 @@
 /* IMPORT */
+import { findChildEle } from './search.js'
+
 import {
   addEleClass
+  , addEleText
   , addHeader
   , addOption
+  , createBr
+  , createEle
   , delEleChildren
 } from './addElement.js'
 
@@ -24,11 +29,20 @@ export function getObj(array,element){
   }
 }
 
+
+// Add a <br> element to an existing element
+export function addEleBr(parent){
+  let ele = createBr();
+  addEleAfter(parent,ele);
+  return parent;
+}
+
 // Add Date to the DOM
 export function addDateDom(element,date){
-  let ele = document.createElement("div");
-  ele.innerText = date;
-  addEleAfter(element,ele);
+  let ele = createEle("div");
+  let elementCore = findChildEle(element,".todoCore");
+  addEleText(ele,date);
+  addEleAfter(elementCore,ele);
 }
 
 // Add element at bottom of parent
@@ -41,6 +55,14 @@ export function addEleAfter(parent,child){
 export function addEleBefore(parent,child){
   let ele = getEle(parent);
   ele.prepend(child);
+}
+
+export function addTitel(parent,titel){
+  let ele = createEle("div");
+  let elementCore = findChildEle(parent,".todoCore");
+  console.log("eleCore",elementCore);
+  addEleText(ele,titel);
+  addEleBefore(elementCore,ele);
 }
 
 // Delete an element from the DOM and Array
@@ -65,6 +87,7 @@ export function displayElement(element){
 // Expand ToDo Element
 export function todoExpand(arr,element){
   let obj = getObj(arr,element);
+  addEleBr(element);
   addEleAfter(element,obj.desc);
 }
 

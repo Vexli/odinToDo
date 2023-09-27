@@ -8,7 +8,8 @@ function addAttribute(element,attribute,value){
   return element;
 }
 
-// Add classt to an existing element
+
+// Add classes to an existing element
 export function addEleClass(element,arr){
   for (let i = 0; i < arr.length; i++){
     element.classList.add(arr[i]);
@@ -17,7 +18,7 @@ export function addEleClass(element,arr){
 }
 
 // Add text to an existing element
-function addEleText(element,text){
+export function addEleText(element,text){
   element.textContent = text;
   return element
 }
@@ -28,8 +29,15 @@ function addEleValue(element,value){
   return element;
 }
 
+
+// Create a <br> element
+export function createBr(){
+    let ele = createEle("br");
+    return ele;
+}
+
 // Create a new element
-function createEle(type){
+export function createEle(type){
   return document.createElement(type);
 }
 

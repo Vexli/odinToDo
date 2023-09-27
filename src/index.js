@@ -29,6 +29,7 @@ import{
 import{
   addEleAfter
   , addEleBefore
+  , addEleBr
   , addPrjctName
   , delToDo
   , displayElement
@@ -62,10 +63,10 @@ document.addEventListener("click", (e) =>{
   if (e.target === todoAdd){ // Add new ToDo
     displayElement(formAdd);
   }else if (e.target.classList.contains("todo") == true){ // Change a ToDo from Open to Done
-    let obj = getObj(arrToDo,e.target);
-    addStatus(obj,1);
-    addEleClass(e.target,["complete"]);
-    //todoExpand(arrToDo,e.target);
+    // let obj = getObj(arrToDo,e.target);
+    // addStatus(obj,1);
+    //  addEleClass(e.target,["complete"]);
+    todoExpand(arrToDo,e.target);
   }else if (e.target.id == "nav"){
     modeDark();
   }
@@ -73,21 +74,22 @@ document.addEventListener("click", (e) =>{
 
 // Listen for Side Menu Clicks
 document.addEventListener("click", (e) =>{
-  if (e.target.classList.contains("listToDo")){ // Find all open ToDo
-    let resultSearch = arrSearch(arrToDo,"status",0);
-    searchDisplay(arrToDo,resultSearch);
-  }else if (e.target.id === "addProject"){ // Add a new Project
+  let element = e.target
+  if (element.id === "addProject"){                       // Add a new Project
     addPrjctName(arrProject);
     prjctMenu(arrProject,"listProject");
     prjctSelect(arrProject,"todoProject")
-  }else if (e.target.classList.contains("project")){ // Find all ToDo off a Project
-    let resultSearch = arrSearch(arrToDo,"project",e.target.textContent);
-    searchDisplay(arrToDo,resultSearch);
-  }else if (e.target.classList.contains("listDone")){ // Find all completed ToDo
-    let resultSearch = arrSearch(arrToDo,"status",1);
-    searchDisplay(arrToDo,resultSearch);
-  }else if (e.target.classList.contains("listAll")){ // Find All ToDo, Open and Done
-    let resultSearch = arrSearch(arrToDo,"all","");
+  }else {
+    let resultSearch = "";
+    if (element.classList.contains("listToDo")){          // Find all open ToDo
+      resultSearch = arrSearch(arrToDo,"status",0);
+    }else if (element.classList.contains("project")){     // Find all ToDo off a Project
+      resultSearch = arrSearch(arrToDo,"project",element.textContent);
+    }else if (element.classList.contains("listDone")){    // Find all completed ToDo
+      resultSearch = arrSearch(arrToDo,"status",1);
+    }else if (element.classList.contains("listAll")){     // Find All ToDo, Open and Done
+      resultSearch = arrSearch(arrToDo,"all","");
+    }
     searchDisplay(arrToDo,resultSearch);
   }
 });
@@ -96,8 +98,9 @@ document.addEventListener("click", (e) =>{
 document.addEventListener("click", (e) =>{
   if (e.target.classList.contains("btn")){
     e.preventDefault();
-    if (e.target.id === "btnNewToDo"){ // Add new ToDo
-      createToDo("container", formAdd.elements.todoTitel.value, formAdd.elements.todoDate.value, formAdd.elements.todoDesc.value, formAdd.elements.todoPriority.value, formAdd.elements.todoProject.value);
+    if (e.target.id === "btnNewToDo"){                    // Add new ToDo
+      let element = formAdd.elements;
+      createToDo("container", element.todoTitel.value, element.todoDate.value, element.todoDesc.value, element.todoPriority.value, element.todoProject.value);
       formAdd.style.display = "none";
     }
   }

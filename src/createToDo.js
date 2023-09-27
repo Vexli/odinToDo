@@ -1,6 +1,8 @@
 /* Import */
 import { arrToDo } from './varGlobal.js';
-import { addDate, addDesc, addId, addPrio, addProject, addStatus } from './alterToDo.js';
+import { addEleAfter, addTitel, getEle } from './alterDOM.js';
+import { addEleClass, addEleText } from './addElement.js';
+import { addDate, addDesc, addCoreId, addId, addPrio, addProject, addStatus } from './alterToDo.js';
 
 /* VARIABLE Define */
 const idContainer = "container";
@@ -17,10 +19,13 @@ function createElement(parent,type){
 // ToDo DOM
 export function todoDom(parent,variable){
   let ele = createElement(parent,"div");
-  ele.textContent = variable.titel;
-  ele.classList.add("todo");
+  addId(variable,ele);
+  addEleClass(ele,["todo"]);
 
-  addId(variable,ele,"todo");
+  let eleCore = createElement(ele.id,"div");
+  addCoreId(eleCore,ele.id);
+  addEleClass(eleCore,["todoCore"]);
+  addEleAfter(ele,eleCore);
   return ele;
 }
 
@@ -36,7 +41,11 @@ export function createToDo(parent,titel,date,desc,prio,project){
     let responseTodo = todoVar(titel);
 
     todoDom(parent,responseTodo);
-    addDate(responseTodo,date);
+
+    let eleDom = getEle(responseTodo);
+
+    addTitel(eleDom,titel);
+    addDate(eleDom,date);
     addDesc(responseTodo,desc);
     addPrio(responseTodo,prio);
     addProject(responseTodo,project);

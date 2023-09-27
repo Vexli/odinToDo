@@ -111,12 +111,6 @@ textarea{
 .todo{
   background-color: var(--colorLight);
   border: 1px solid var(--colorPrimary);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1vh;
-  overflow: hidden;
-  padding: 1vh;
 }
 
 .todo:hover{
@@ -142,4 +136,14 @@ textarea{
 .todoAdd:hover{
   background-color: var(--colorPrimary);
   color: var(--colorSecondary);
+}
+
+.todoCore{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1vh;
+  overflow: hidden;
+  padding: 1vh;
+  width: 100%
 }

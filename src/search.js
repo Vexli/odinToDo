@@ -28,3 +28,8 @@ export function searchDisplay(arr,arrTarget){
       }
     }
 }
+
+// Find Child Nodes
+export function findChildEle(parent,search){
+  return parent.querySelector(search);
+}
