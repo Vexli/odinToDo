@@ -8,7 +8,6 @@ function addAttribute(element,attribute,value){
   return element;
 }
 
-
 // Add classes to an existing element
 export function addEleClass(element,arr){
   for (let i = 0; i < arr.length; i++){
@@ -28,7 +27,6 @@ function addEleValue(element,value){
   addAttribute(element,"value",value);
   return element;
 }
-
 
 // Create a <br> element
 export function createBr(){

@@ -1,3 +1,16 @@
+/* Color Scheme */
+@media (prefers-color-scheme: light) {
+  :root{
+    color-scheme: "light";
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    color-scheme: "dark";
+  }
+}
+
 /* Root Variables */
 :root{
   --colorBlackTrue: #000;
@@ -11,33 +24,45 @@
   --colorPrimaryDark: #840032;
   --colorSecondaryDark: #1E222F;
 
-  --colorDark: var(--colorBackgroundDark);
-  --colorLight: var(--colorBackgroundLight);
-  --colorMode: var(--colorWhiteTrue);
-  --colorPrimary: var(--colorPrimaryLight);
-  --colorSecondary: var(--colorSecondaryLight);
+
+
+  --heightMenu: 28px;
+  --timeTransition: 310ms;
 }
 
 /* Global Elements */
+body{
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 body
 , input
 , select
 , option
 , textarea{
-  background-color: var(--colorLight);
-  color: var(--colorDark);
+  background-color: light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
+  color: light-dark(var(--colorBackgroundDark),var(--colorBackgroundLight));
   font-family: Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+h2{
+  transition: text-decoration var(--timeTransition) ease-out;
+}
+
+h2:hover{
+  text-decoration: light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark)) wavy underline;
 }
 
 input
 , select
 , option
 , textarea{
-  background-color: var(--colorLight);
-  border: 1px solid var(--colorPrimary);
-  color: var(--colorDark);
+  background-color: light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
+  border: 1px solid light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
+  color: light-dark(var(--colorBackgroundDark),var(--colorBackgroundLight));
   font-size: 16px;
   height: 32px;
   padding: 6px;
@@ -53,10 +78,17 @@ textarea{
   display: flex;
 }
 
+.btn
+, .logo
+, .todo
+, .todoAdd{
+  transition: color var(--timeTransition) ease-out;
+}
+
 .btn:hover{
-  background-color: var(--colorPrimary);
-  border: 1px solid var(--colorLight);
-  color: var(--colorLight);
+  background-color: light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
+  border: 1px solid light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
+  color: light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
 }
 
 .complete{
@@ -82,26 +114,35 @@ textarea{
 }
 
 .logo:hover{
-  color: var(--colorDark);
+  color: light-dark(var(--colorBackgroundDark),var(--colorBackgroundLight));
 }
 
 .menuSide{
-  background-color: var(--colorSecondary);
-  height: 92vh;
+  justify-content: end;
+  background-color: light-dark(var(--colorSecondaryLight),var(--colorSecondaryDark));
+  height: calc(100vh - var(--heightMenu));
   margin: 0;
   padding: 1vh;
   text-align: right;
   width: 18vw;
 }
 
+.mobileHide{
+  display: flex;
+}
+
+.mobileShow{
+  display: none;
+}
+
 .nav{
   align-items: center;
-  background-color: var(--colorPrimary);
-  color: var(--colorLight);
+  background-color: light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
+  color: light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
   display: flex;
   flex-wrap: wrap;
   font-size: 28px;
-  height: auto;
+  height: var(--heightMenu);
   justify-content: space-between;
   overflow: hidden;
   padding: 1vh;
@@ -109,20 +150,20 @@ textarea{
 }
 
 .todo{
-  background-color: var(--colorLight);
-  border: 1px solid var(--colorPrimary);
+  background-color: light-dark(var(--colorBackgroundLight),var(--colorBackgroundDark));
+  border: 1px solid light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
 }
 
 .todo:hover{
-  background-color: var(--colorSecondary);
+  background-color: light,dark(var(--colorSecondaryLight),var(--colorSecondaryDark));
 }
 
 .todoAdd{
   align-items: center;
-  background-color: var(--colorSecondary);
+  background-color: light-dark(var(--colorSecondaryLight),var(--colorSecondaryDark));
   border-radius: 50%;
   bottom: 21px;
-  color: var(--colorPrimary);
+  color: light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
   display: flex;
   font-size: 42px;
   height: 50px;
@@ -134,8 +175,8 @@ textarea{
 }
 
 .todoAdd:hover{
-  background-color: var(--colorPrimary);
-  color: var(--colorSecondary);
+  background-color: light-dark(var(--colorPrimaryLight),var(--colorPrimaryDark));
+  color: light,dark(var(--colorSecondaryLight),var(--colorSecondaryDark));
 }
 
 .todoCore{
@@ -146,4 +187,15 @@ textarea{
   overflow: hidden;
   padding: 1vh;
   width: 100%
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .mobileHide{
+    display: none;
+  }
+
+  .mobileShow{
+    display: flex;
+  }
 }

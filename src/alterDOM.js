@@ -29,7 +29,6 @@ export function getObj(array,element){
   }
 }
 
-
 // Add a <br> element to an existing element
 export function addEleBr(parent){
   let ele = createBr();
